@@ -35,4 +35,4 @@ const PostSchema = new Schema({
 
 PostSchema.plugin(mongooseAutoPopulate);
 
-export default model("Publicacione", PostSchema);
+export default model("Post", PostSchema);
