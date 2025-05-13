@@ -22,16 +22,7 @@ const PostSchema = new Schema({
         required: true,
         trim: true,
     },
-    status: {
-        type: String,
-        enum: ["published", "draft", "archived"],
-        default: "draft",
-    },
     createdAt: {
-        type: Date,
-        default: Date.now,
-    },
-    updatedAt: {
         type: Date,
         default: Date.now,
     },
