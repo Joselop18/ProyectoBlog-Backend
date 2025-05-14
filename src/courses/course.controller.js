@@ -56,3 +56,28 @@ export const crearCoursePracticaSup = async () => {
         console.error("No se pudo crear el curso Practica Supervisada: ", error);
     }
 };
+
+export const getCourses = async (req, res) => {
+    try {
+        const courses = await Course.find();
+        if (courses.length === 0) {
+            return res.status(404).json({
+                success: false,
+                message: "No se encontraron cursos",
+            });
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "Cursos obtenidos exitosamente",
+            courses,
+        });
+    } catch (error) {
+        console.error("Error al obtener los cursos:", error);
+        res.status(500).json({
+            success: false,
+            message: "Error interno del servidor",
+            error: error.message,
+        });
+    }
+};

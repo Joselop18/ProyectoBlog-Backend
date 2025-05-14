@@ -6,11 +6,9 @@ import helmet from 'helmet';
 import morgan from "morgan";
 import { dbConnection } from './mongo.js';
 import { crearCourseTaller, crearCourseTecnologia, crearCoursePracticaSup } from "../src/courses/course.controller.js";
-/*
 import postRoutes from "../src/posts/post.routes.js"
-import commentRoutes from "../src/comment/comment.routes.js"
-import categoryRoutes from "../src/categories/category.routes.js";
-*/
+import commentRoutes from "../src/comments/comment.routes.js"
+import courseRoutes from "../src/courses/course.routes.js"
 
 const configurarMiddlewares = (app) => {
     app.use(express.urlencoded({extended: false}));
@@ -20,16 +18,12 @@ const configurarMiddlewares = (app) => {
     app.use(morgan('dev'));
 }
 
-/*
-const configurarRutas = (app) =>{       
-        app.use("/postSystem/v1/auth", authRoutes);
-        app.use("/postSystem/v1/users", userRoutes);
-        app.use("/postSystem/v1/posts", postRoutes);
-        app.use("/postSystem/v1/comments", commentRoutes);
-        app.use("/postSystem/v1/categories", categoryRoutes);
+const configurarRutas = (app) =>{
+        app.use("/blog/v1/posts", postRoutes);
+        app.use("/blog/v1/comments", commentRoutes);
+        app.use("/blog/v1/courses", courseRoutes);
 
 }
-*/
 
 const conectarDB = async () => {
     try {
@@ -49,7 +43,7 @@ export const initServer = async () => {
     await crearCourseTecnologia();
     await crearCoursePracticaSup();
     configurarMiddlewares(app);
-    //configurarRutas(app);
+    configurarRutas(app);
 
     app.listen(port, () => {
         console.log(`Server Running On Port ${port}`);
