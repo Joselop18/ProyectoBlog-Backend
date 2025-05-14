@@ -7,14 +7,14 @@ const PostSchema = new Schema({
         required: true,
         trim: true,
     },
-    content: {
+    description: {
         type: String,
         required: true,
     },
-    category: {
+    course: {
         type: Schema.Types.ObjectId,
-        ref: "Category",
-        autopopulate: { select: 'name -_id' },
+        ref: "Courses",
+        autopopulate: true,
         required: true,
     },
     authorName: {
@@ -30,6 +30,7 @@ const PostSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "Comment",
         autopopulate: true,
+        required: true,
     }],
 });
 

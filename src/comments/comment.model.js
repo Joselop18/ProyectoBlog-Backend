@@ -16,6 +16,7 @@ const CommentSchema = new Schema({
     },
     author: {
         type: String,
+        required: true,
         default: "Anónimo",
         maxlength: 50,
     },

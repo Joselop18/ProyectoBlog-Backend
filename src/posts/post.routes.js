@@ -1,5 +1,5 @@
 import { Router } from "express";
-import {savePost, getPost} from "./post.controller.js";
+import { savePost, getPost } from "./post.controller.js";
 import { validatePost } from "../middlewares/validate-Post.js";
 
 const router = Router();

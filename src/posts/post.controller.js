@@ -2,16 +2,16 @@ import Post from "./post.model";
 
 export const savePost = async (req, res) => {
     try {
-        const { title, content, category, authorName } = req.body;
+        const { title, description, course, authorName } = req.body;
 
-        if (!title || !content || !category || !authorName) {
+        if (!title || !description || !course || !authorName) {
             return res.status(400).json({ message: "Todos los campos son obligatorios." });
         }
 
         const newPost = new Post({
             title,
-            content,
-            category,
+            description,
+            course,
             authorName,
         });
 
@@ -26,15 +26,15 @@ export const savePost = async (req, res) => {
 
 export const getPost = async (req, res) => {
     try {
-        const { category } = req.query;
-
+        const { course } = req.query;
         const filters = {};
-        if (category) {
-            filters.category = category;
+        
+        if (course) {
+            filters.course = course;
         }
 
         const posts = await Post.find(filters)
-            .populate("category", "name -_id")
+            .populate("course", "name -_id")
             .populate("comments");
 
         res.status(200).json(posts);

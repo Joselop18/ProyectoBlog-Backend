@@ -8,7 +8,7 @@ export const saveComment = async (req, res) => {
         if (!comment || !postId) {
             return res.status(400).json({
                 success: false,
-                message: "El comentario y el ID de la publicación son obligatorios",
+                message: "El comentario y la publicación son obligatorios",
             });
         }
 
@@ -22,7 +22,7 @@ export const saveComment = async (req, res) => {
 
         const newComment = new Comment({
             comment,
-            post: postId,
+            post,
             author: author || "Anónimo",
         });
 
@@ -72,6 +72,81 @@ export const getComment = async (req, res) => {
         res.status(500).json({
             success: false,
             message: "Error al obtener los comentarios",
+            error: error.message,
+        });
+    }
+};
+
+export const updateComment = async (req, res) => {
+    try {
+        const { commentId } = req.params;
+        const { comment, author } = req.body;
+
+        if (!commentId) {
+            return res.status(400).json({
+                success: false,
+                message: "El ID del comentario es obligatorio",
+            });
+        }
+
+        const existingComment = await Comment.findById(commentId);
+        if (!existingComment) {
+            return res.status(404).json({
+                success: false,
+                message: "No se encontró el comentario",
+            });
+        }
+        
+        if (comment) existingComment.comment = comment;
+        if (author) existingComment.author = author;
+        
+        const updatedComment = await existingComment.save();
+
+        res.status(200).json({
+            success: true,
+            message: "Comentario actualizado exitosamente",
+            comment: updatedComment,
+        });
+    } catch (error) {
+        console.error("Error al actualizar el comentario:", error);
+        res.status(500).json({
+            success: false,
+            message: "Error al actualizar el comentario",
+            error: error.message,
+        });
+    }
+};
+
+export const deleteComment = async (req, res) => {
+    try {
+        const { commentId } = req.params;
+
+        if (!commentId) {
+            return res.status(400).json({
+                success: false,
+                message: "El ID del comentario es obligatorio",
+            });
+        }
+
+        const deletedComment = await Comment.findByIdAndDelete(commentId);
+
+        if (!deletedComment) {
+            return res.status(404).json({
+                success: false,
+                message: "No se encontró el comentario",
+            });
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "Comentario eliminado exitosamente",
+            comment: deletedComment,
+        });
+    } catch (error) {
+        console.error("Error al eliminar el comentario:", error);
+        res.status(500).json({
+            success: false,
+            message: "Error al eliminar el comentario",
             error: error.message,
         });
     }
