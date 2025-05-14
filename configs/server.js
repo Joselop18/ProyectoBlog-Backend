@@ -5,6 +5,7 @@ import cors from 'cors';
 import helmet from 'helmet';
 import morgan from "morgan";
 import { dbConnection } from './mongo.js';
+import { crearCourseTaller, crearCourseTecnologia, crearCoursePracticaSup } from "../src/courses/course.controller.js";
 /*
 import postRoutes from "../src/posts/post.routes.js"
 import commentRoutes from "../src/comment/comment.routes.js"
@@ -44,6 +45,9 @@ export const initServer = async () => {
     const port = process.env.PORT || 3000;
 
     await conectarDB();
+    await crearCourseTaller();
+    await crearCourseTecnologia();
+    await crearCoursePracticaSup();
     configurarMiddlewares(app);
     //configurarRutas(app);
 
