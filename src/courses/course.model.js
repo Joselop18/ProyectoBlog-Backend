@@ -12,6 +12,10 @@ const CoursesSchema = new mongoose.Schema({
     },
     image:{
         type: String
+    },
+    status: {
+        type: Boolean,
+        default: true
     }
 }, {
     timestamps: true,

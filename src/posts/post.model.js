@@ -32,6 +32,10 @@ const PostSchema = new Schema({
         autopopulate: true,
         required: true,
     }],
+    status: {
+        type: Boolean,
+        default: true
+    }
 });
 
 PostSchema.plugin(mongooseAutoPopulate);

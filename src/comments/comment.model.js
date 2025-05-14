@@ -20,6 +20,10 @@ const CommentSchema = new Schema({
         default: "Anónimo",
         maxlength: 50,
     },
+    status: {
+        type: Boolean,
+        default: true
+    }
     }, {
     timestamps: true,
     versionKey: false
