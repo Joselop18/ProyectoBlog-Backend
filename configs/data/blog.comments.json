@@ -1,0 +1,17 @@
+[{
+  "_id": {
+    "$oid": "682ac2879020abb63e587d6f"
+  },
+  "post": {
+    "$oid": "682abe29ffeae71537e18c9a"
+  },
+  "comment": "Excelente trabajo",
+  "author": "Anónimo",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-05-19T05:32:55.847Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-19T05:32:55.847Z"
+  }
+}]

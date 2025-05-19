@@ -17,21 +17,15 @@ const PostSchema = new Schema({
         autopopulate: true,
         required: true,
     },
-    authorName: {
-        type: String,
-        required: true,
-        trim: true,
-    },
+    comments: [{
+    type: Schema.Types.ObjectId,
+    ref: "Comment",
+    autopopulate: true
+    }],
     createdAt: {
         type: Date,
         default: Date.now,
     },
-    comments: [{
-        type: Schema.Types.ObjectId,
-        ref: "Comment",
-        autopopulate: true,
-        required: true,
-    }],
     status: {
         type: Boolean,
         default: true

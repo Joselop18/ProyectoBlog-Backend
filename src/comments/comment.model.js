@@ -2,17 +2,17 @@ import { Schema, model } from "mongoose";
 import mongooseAutoPopulate from "mongoose-autopopulate";
 
 const CommentSchema = new Schema({
-    comment: {
-        type: String,
-        required: true,
-        minlength: 1,
-        maxlength: 500,
-    },
     post: {
         type: Schema.Types.ObjectId,
         ref: "Post",
         required: true,
         autopopulate: true,
+    },
+    comment: {
+        type: String,
+        required: true,
+        minlength: 1,
+        maxlength: 500,
     },
     author: {
         type: String,

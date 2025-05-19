@@ -28,6 +28,12 @@ export const saveComment = async (req, res) => {
 
         await newComment.save();
 
+        await Post.findByIdAndUpdate(
+        postId,
+        { $push: { comments: newComment._id } },
+        { new: true }
+        );
+
         res.status(201).json({
             success: true,
             message: "Comentario creado exitosamente",

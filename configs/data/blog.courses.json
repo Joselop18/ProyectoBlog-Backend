@@ -1,0 +1,45 @@
+[{
+  "_id": {
+    "$oid": "682a94aa30d29a1e42296f76"
+  },
+  "name": "Taller",
+  "description": "En este curso se ve lo que es la logica de un proyecto",
+  "image": "url",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-05-19T02:17:14.423Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-19T02:17:14.423Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "682a94aa30d29a1e42296f7a"
+  },
+  "name": "Tecnologia",
+  "description": "En este curso se aprende lo teorico",
+  "image": "url",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-05-19T02:17:14.842Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-19T02:17:14.842Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "682a94aa30d29a1e42296f7d"
+  },
+  "name": "Practica Supervisada",
+  "description": "En este curso se hacen trabajos practicos",
+  "image": "url",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-05-19T02:17:14.848Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-19T02:17:14.848Z"
+  }
+}]

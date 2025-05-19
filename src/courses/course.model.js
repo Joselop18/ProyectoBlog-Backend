@@ -22,4 +22,4 @@ const CoursesSchema = new mongoose.Schema({
     versionKey: false
 });
 
-export default mongoose.model("Course", CoursesSchema);
+export default mongoose.model("Courses", CoursesSchema);
