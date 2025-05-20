@@ -1,55 +1,20 @@
 [{
   "_id": {
-    "$oid": "682abd41ffeae71537e18c94"
+    "$oid": "682c25570d9f7cbc913e2fff"
   },
-  "title": "Proyecto Gran Empresario",
-  "description": "Este proyecto consiste en hacer una persona un gran Empresario",
+  "title": "Se hacen Proyectos",
+  "description": "Proyectos de Programacion",
   "course": {
     "$oid": "682a94aa30d29a1e42296f76"
   },
   "status": true,
   "createdAt": {
-    "$date": "2025-05-19T05:10:25.485Z"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "682abde6ffeae71537e18c97"
-  },
-  "title": "Tecnologias para hacer proyectos",
-  "description": "Las Tecnologias mas usadas son Java - JavaSpript - NodeJs - React ",
-  "course": {
-    "$oid": "682a94aa30d29a1e42296f7a"
-  },
-  "status": true,
-  "createdAt": {
-    "$date": "2025-05-19T05:13:10.366Z"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "682abe29ffeae71537e18c9a"
-  },
-  "title": "Poner en Practica como si fuera un trabajo real",
-  "description": "Te ayuda a simular como seria los proyectos en un trabajo real",
-  "course": {
-    "$oid": "682a94aa30d29a1e42296f7d"
-  },
-  "status": true,
-  "createdAt": {
-    "$date": "2025-05-19T05:14:17.784Z"
+    "$date": "2025-05-20T06:46:47.125Z"
   },
   "__v": 0,
   "comments": [
     {
-      "$oid": "682ac1c2c134e8adf97fc5cc"
-    }
-  ],
-  "comment": [
-    {
-      "$oid": "682ac2879020abb63e587d6f"
+      "$oid": "682c256d0d9f7cbc913e3007"
     }
   ]
 }]

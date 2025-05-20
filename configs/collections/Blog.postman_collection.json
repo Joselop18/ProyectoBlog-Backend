@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"title\": \"trabajo real\",\r\n  \"description\": \"Te ayuda a simular\",\r\n  \"course\": \"682a94aa30d29a1e42296f7d\"\r\n}",
+							"raw": "{\r\n  \"title\": \"Se hacen Proyectos\",\r\n  \"description\": \"Proyectos de Programacion\",\r\n  \"course\": \"682a94aa30d29a1e42296f76\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -101,7 +101,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"postId\": \"682abe29ffeae71537e18c9a\",\r\n    \"comment\": \"Excelente trabajo\"\r\n}",
+							"raw": "{\r\n    \"postId\": \"682c25570d9f7cbc913e2fff\",\r\n    \"comment\": \"Excelente\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -131,7 +131,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/blog/v1/comments/682abe29ffeae71537e18c9a",
+							"raw": "http://localhost:3000/blog/v1/comments/682c25570d9f7cbc913e2fff",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -141,7 +141,7 @@
 								"blog",
 								"v1",
 								"comments",
-								"682abe29ffeae71537e18c9a"
+								"682c25570d9f7cbc913e2fff"
 							]
 						}
 					},
