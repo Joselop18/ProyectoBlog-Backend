@@ -1,7 +1,6 @@
-import { Schema, model } from "mongoose";
-import mongooseAutoPopulate from "mongoose-autopopulate";
+import mongoose from "mongoose";
 
-const PostSchema = new Schema({
+const PostSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true,
@@ -12,16 +11,14 @@ const PostSchema = new Schema({
         required: true,
     },
     course: {
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: "Courses",
-        autopopulate: true,
         required: true,
     },
-    comments: [{
-    type: Schema.Types.ObjectId,
-    ref: "Comment",
-    autopopulate: true
-    }],
+    comments: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Comment",
+    },
     createdAt: {
         type: Date,
         default: Date.now,
@@ -32,6 +29,4 @@ const PostSchema = new Schema({
     }
 });
 
-PostSchema.plugin(mongooseAutoPopulate);
-
-export default model("Post", PostSchema);
+export default mongoose.model("Post", PostSchema);

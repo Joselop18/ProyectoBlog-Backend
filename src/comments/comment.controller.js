@@ -59,7 +59,16 @@ export const getComment = async (req, res) => {
             });
         }
 
-        const comments = await Comment.find({ post: postId }).sort({ createdAt: -1 });
+        const comments = await Comment.find({ post: postId })
+            .sort({ createdAt: -1 })
+            .populate({
+                path: "post",
+                select: "title description course",
+                populate: {
+                    path: "course",
+                    select: "name description"
+                }
+            });
 
         if (comments.length === 0) {
             return res.status(404).json({

@@ -1,12 +1,10 @@
-import { Schema, model } from "mongoose";
-import mongooseAutoPopulate from "mongoose-autopopulate";
+import mongoose from "mongoose";
 
-const CommentSchema = new Schema({
+const CommentSchema = new mongoose.Schema({
     post: {
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: "Post",
         required: true,
-        autopopulate: true,
     },
     comment: {
         type: String,
@@ -29,6 +27,4 @@ const CommentSchema = new Schema({
     versionKey: false
 });
 
-CommentSchema.plugin(mongooseAutoPopulate);
-
-export default model("Comment", CommentSchema);
+export default mongoose.model("Comment", CommentSchema);
