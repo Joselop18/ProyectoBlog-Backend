@@ -1,23 +1,32 @@
 import { Router } from "express";
-import { saveComment, getComment, updateComment, deleteComment} from "./comment.controller.js";
+import { saveComment, getComments, updateComment, deleteComment, getCommentsById, getCommentsByPost} from "./comment.controller.js";
 import { validateComment } from "../middlewares/validate-comments.js";
 
 const router = Router();
 
 router.post(
-    "/",
+    "/:postId",
     validateComment,
     saveComment
 );
 
 router.get(
-    "/:postId",
-    getComment
+    "/",
+    getComments
+);
+
+router.get(
+    "/:id",
+    getCommentsById
+);
+
+router.get(
+    "/post/:postId",
+    getCommentsByPost
 );
 
 router.put(
-    "/:id",
-    validateComment,
+    "/:commentId",
     updateComment
 );
 

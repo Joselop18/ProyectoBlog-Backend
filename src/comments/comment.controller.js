@@ -3,7 +3,8 @@ import Comment from "./comment.model.js";
 
 export const saveComment = async (req, res) => {
     try {
-        const { comment, postId, author } = req.body;
+        const { comment,  author } = req.body;
+        const { postId } = req.params;	
 
         if (!comment || !postId) {
             return res.status(400).json({
@@ -49,9 +50,85 @@ export const saveComment = async (req, res) => {
     }
 };
 
-export const getComment = async (req, res) => {
+export const getComments = async (req, res) => {
+    try {
+        const comments = await Comment.find().sort({ createdAt: -1 }).populate({
+            path: "post",
+            select: "title description course",
+            populate: {
+                path: "course",
+                select: "name description"
+            }
+        });
+
+        if (comments.length === 0) {
+            return res.status(404).json({
+                success: false,
+                message: "No se encontraron comentarios",
+            });
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "Comentarios obtenidos exitosamente",
+            comments,
+        });
+    } catch (error) {
+        console.error("Error al obtener los comentarios:", error);
+        res.status(500).json({
+            success: false,
+            message: "Error al obtener los comentarios",
+            error: error.message,
+        });
+    }
+};
+
+export const getCommentsById = async (req, res) => {
+    try {
+        const { commentId } = req.params;
+
+        if (!commentId) {
+            return res.status(400).json({
+                success: false,
+                message: "El ID del comentario es obligatorio",
+            });
+        }
+
+        const comment = await Comment.findById(commentId).populate({
+            path: "post",
+            select: "title description course",
+            populate: {
+                path: "course",
+                select: "name description"
+            }
+        });
+
+        if (!comment) {
+            return res.status(404).json({
+                success: false,
+                message: "No se encontró el comentario",
+            });
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "Comentario obtenido exitosamente",
+            comment,
+        });
+    } catch (error) {
+        console.error("Error al obtener el comentario:", error);
+        res.status(500).json({
+            success: false,
+            message: "Error al obtener el comentario",
+            error: error.message,
+        });
+    }
+};
+
+export const getCommentsByPost = async (req, res) => {
     try {
         const { postId } = req.params;
+
         if (!postId) {
             return res.status(400).json({
                 success: false,
@@ -83,10 +160,10 @@ export const getComment = async (req, res) => {
             comments,
         });
     } catch (error) {
-        console.error(error);
+        console.error("Error al obtener los comentarios por publicación:", error);
         res.status(500).json({
             success: false,
-            message: "Error al obtener los comentarios",
+            message: "Error al obtener los comentarios por publicación",
             error: error.message,
         });
     }

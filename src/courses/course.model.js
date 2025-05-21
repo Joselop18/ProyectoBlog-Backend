@@ -10,9 +10,6 @@ const CoursesSchema = new mongoose.Schema({
         type: String,
         default: true
     },
-    image:{
-        type: String
-    },
     status: {
         type: Boolean,
         default: true

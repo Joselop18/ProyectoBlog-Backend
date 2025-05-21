@@ -7,7 +7,6 @@ export const crearCourseTaller = async () => {
             const taller = new Course({
                 name: "Taller",
                 description: "En este curso se ve lo que es la logica de un proyecto",
-                image: "url",
             });
             await taller.save(); 
             console.log("Se creo el curso Taller correctamente");
@@ -26,7 +25,6 @@ export const crearCourseTecnologia = async () => {
             const tecnologia = new Course({
                 name: "Tecnologia",
                 description: "En este curso se aprende lo teorico",
-                image: "url",
             });
             await tecnologia.save(); 
             console.log("Se creo el curso Tecnologia correctamente");
@@ -45,7 +43,6 @@ export const crearCoursePracticaSup = async () => {
             const practicaSup = new Course({
                 name: "Practica Supervisada",
                 description: "En este curso se hacen trabajos practicos",
-                image: "url",
             });
             await practicaSup.save(); 
             console.log("Se creo el curso Practica Supervisada correctamente");
